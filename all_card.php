@@ -14,9 +14,15 @@ include 'header.php';
 </head>
 
 <body>
-    <?php include "nav.php"; ?>
 
     <?php
+    // Pagination settings
+    $itemsPerPage = 6;
+    $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $currentPage = max($currentPage, 1); // Ensure page number is at least 1
+    $offset = ($currentPage - 1) * $itemsPerPage;
+
+    // Fetch categories
     $result = $conn->query("SELECT * FROM event_categories");
     $rows = $result->fetch_all(MYSQLI_ASSOC);
     echo "<section class='category'>";
@@ -29,9 +35,10 @@ include 'header.php';
             </div>
         </a>";
     }
-    echo "</section>";
+    echo "</section>";  
 
-    $events = $conn->query("SELECT * FROM events");
+    // Fetch events with pagination
+    $events = $conn->query("SELECT * FROM events LIMIT $offset, $itemsPerPage");
     $events_img = $conn->query("SELECT * FROM event_images");
 
     $eventRows = $events->fetch_all(MYSQLI_ASSOC);
@@ -51,13 +58,12 @@ include 'header.php';
         $imageUrl = '';
         if (isset($eventImages[$eventId]) && !empty($eventImages[$eventId])) {
             $imageUrl = 'uploads_events/' . $eventImages[$eventId][0];
-           
             if (!file_exists($imageUrl)) {
                 $imageUrl = '';
             }
         }
         if (empty($imageUrl)) {
-            $imageUrl = 'uploads_events/WikiDiet (3).png'; 
+            $imageUrl = 'uploads_events/WikiDiet (3).png';
         }
         echo "
     <section class='main'>
@@ -84,8 +90,23 @@ include 'header.php';
     </section>";
     }
     echo "</div>";
-    
 
+    // Pagination controls
+    $totalEventsResult = $conn->query("SELECT COUNT(*) AS total FROM events");
+    $totalEvents = $totalEventsResult->fetch_assoc()['total'];
+    $totalPages = ceil($totalEvents / $itemsPerPage);
+
+    echo "<div class='pagination'>";
+    if ($currentPage > 1) {
+        echo "<a href='all_card.php?page=" . ($currentPage - 1) . "'>&laquo; Previous</a>";
+    }
+    for ($i = 1; $i <= $totalPages; $i++) {
+        echo "<a href='all_card.php?page=$i'" . ($i == $currentPage ? " class='active'" : "") . ">$i</a>";
+    }
+    if ($currentPage < $totalPages) {
+        echo "<a href='all_card.php?page=" . ($currentPage + 1) . "'>Next &raquo;</a>";
+    }
+    echo "</div>";
     ?>
 </body>
 

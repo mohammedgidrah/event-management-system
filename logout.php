@@ -2,6 +2,5 @@
 include 'connection.php';
 
 if (true) {
-    header("location: index.php");
+    header("location: login.php");
 }
-echo "hi";

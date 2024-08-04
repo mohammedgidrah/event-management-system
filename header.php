@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <!-- style -->
-    <link href="styles/style.css" rel="stylesheet">
+    <!-- <link href="styles/style.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="sts.css">
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -39,9 +39,9 @@
             <li class="nav-item">
                 <a href="all_card.php" class="nav-link">Events</a>
             </li>
-            <li class="nav-item">
-                <a href="contact.html" class="nav-link">Contact</a>
-            </li>
+                <!-- <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li> -->
             <li class="nav-item">
                 <a href="index_user.php" class="nav-link">profile</a>
             </li>

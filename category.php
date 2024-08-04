@@ -1,91 +1,30 @@
-<?php include("event/includes/header.php") ?>
-<?php include("event/includes/sidebar.php") ?>
+  
+<?php include ("event/includes/header.php") ?>
+<?php include ("event/includes/sidebar.php")?>
 <?php
 include 'connection.php';
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//   if (isset($_POST['delete'])) {
-//     $userID = $_POST['category_id'];
-//     $deleteSuccess = false;
+$deleteMessage = '';
+$deleteStatus = '';
 
-//     $stmt = $conn->prepare("DELETE FROM event_categories WHERE category_id = ?");
-//     $stmt->bind_param("i", $userID);
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
+  $categoryID = $_POST['category_id'];
 
-//     if ($stmt->execute()) {
+  $stmt = $conn->prepare("DELETE FROM event_categories WHERE category_id = ?");
+  $stmt->bind_param("i", $categoryID);
 
-//     } else {
-//       echo "Error: " . $stmt->error;
-//     }
-
-//     $stmt->close();
-//   }
-// }
-
-// $deleteSuccess = null;
-// $errorMessage = '';
-
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//   if (isset($_POST['delete'])) {
-//     $categoryID = $_POST['category_id'];
-
-//     $stmt = $conn->prepare("DELETE FROM event_categories WHERE category_id = ?");
-//     $stmt->bind_param("i", $categoryID);
-
-//     if ($stmt->execute()) {
-//       $deleteSuccess = true;
-//     } else {
-//       $deleteSuccess = false;
-//       $errorMessage = "Error: " . $stmt->error;
-//     }
-
-//     $stmt->close();
-//   }
-// }
-
-
-
-$deleteSuccess = false;
-$errorMessage = '';
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (isset($_POST['delete'])) {
-    $categoryID = $_POST['category_id'];
-
-    $stmt = $conn->prepare("DELETE FROM event_categories WHERE category_id = ?");
-    $stmt->bind_param("i", $categoryID);
-
-    if ($stmt->execute()) {
-      $deleteSuccess = true;
-    } else {
-      $deleteSuccess = false;
-      $errorMessage = "Error: " . $stmt->error;
-    }
-
-    $stmt->close();
+  if ($stmt->execute()) {
+    $deleteMessage = "The category has been deleted successfully.";
+    $deleteStatus = "success";
+  } else {
+    $deleteMessage = "Error: " . $stmt->error;
+    $deleteStatus = "error";
   }
+
+  $stmt->close();
 }
 ?>
 
-
-<?php if (isset($deleteSuccess)) : ?>
-  <script>
-    window.onload = function() {
-      <?php if ($deleteSuccess) : ?>
-        Swal.fire(
-          'Deleted!',
-          'The category has been deleted.',
-          'success'
-        )
-      <?php elseif ($errorMessage) : ?>
-        Swal.fire(
-          'Error!',
-          '<?php echo $errorMessage; ?>',
-          'error'
-        );
-      <?php endif;   ?>
-    }
-  </script>
-<?php endif; ?>
 <main id="main" class="main">
   <div class="pagetitle">
     <h1>Categories</h1>
@@ -97,11 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </nav>
   </div>
 
-
   <section class="section">
     <div class="row">
       <div class="col-lg-8">
-
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Default Table</h5>
@@ -113,13 +50,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   <th scope="col">Category Name</th>
                   <th scope="col">Category Icon</th>
                   <th scope="col">Delete Category</th>
-                  <th scope="col">Edit Category </th>
-
+                  <th scope="col">Edit Category</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody>      
                 <?php
-                $query = "SELECT `category_id`, `name`, `icon` FROM `event_categories` ";
+                $query = "SELECT `category_id`, `name`, `icon` FROM `event_categories`"; 
                 $result = $conn->query($query);
 
                 if ($result->num_rows > 0) {
@@ -131,24 +67,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo "<td>";
                     echo "<form id='deleteForm{$row['category_id']}' action='" . $_SERVER['PHP_SELF'] . "' method='post' style='display:inline;'>";
                     echo "<input type='hidden' name='category_id' value='{$row['category_id']}'>";
-                    echo "<button type='submit' name='delete' onclick='confirmDelete({$row['category_id']})' class='btn btn-danger btn-sm'><i class=\"bi bi-person-x-fill\" style=\"font-size:1.2em;\"></i></button>";
+                    echo "<button type='submit' name='delete' onclick='confirmDelete({$row['category_id']}); return false;' class='btn btn-danger btn-sm'><i class=\"bi bi-person-x-fill\" style=\"font-size:1.2em;\"></i></button>";
                     echo "</form>";
-
+                    echo "</td>";
                     echo "<td>";
                     echo "<form action='edit_category.php' method='get' style='display:inline;'>";
                     echo "<input type='hidden' name='category_id' value='" . htmlspecialchars($row["category_id"], ENT_QUOTES, 'UTF-8') . "'>";
-                    echo "<button type='submit' name='edit' class='btn btn-success btn-sm'>
-        <i class='bi bi-pencil-square' style='font-size:1.2em;'></i>
-      </button>";
+                    echo "<button type='submit' name='edit' class='btn btn-success btn-sm'><i class='bi bi-pencil-square' style='font-size:1.2em;'></i></button>";
                     echo "</form>";
                     echo "</td>";
                     echo "</tr>";
                   }
                 }
                 ?>
-
-
-
               </tbody>
             </table>
           </div>
@@ -156,26 +87,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
     </div>
   </section>
-
-
 </main>
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-  function confirmDelete(categoryId) {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'Cancel'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        document.getElementById('deleteForm' + categoryId).submit();
-      }
+  document.addEventListener('DOMContentLoaded', function () {
+    
+    <?php if (isset($_GET['success'])): ?>
+      Swal.fire('Success!', 'Category updated successfully.', 'success');
+      <?php endif; ?>
     });
-  }
+    
+    // function confirmDelete(categoryId) {
+      //   Swal.fire({
+        //     title: 'Are you sure?',
+        //     text: "You won't be able to revert this!",
+        //     icon: 'warning',
+        //     showCancelButton: true,
+        //     confirmButtonColor: '#3085d6',
+        //     cancelButtonColor: '#d33',
+        //     confirmButtonText: 'Yes, delete it!',
+        //     cancelButtonText: 'Cancel'
+        //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       document.getElementById('deleteForm' + categoryId).submit();
+  //     }
+  //   });
+  // }
 </script>
-<?php include("event/includes/footer.php"); ?>
+
+<?php include ("event/includes/footer.php");?>
+
+// <?php if ($deleteMessage): ?>
+//   // Swal.fire({
+//   //   title: '<?php echo $deleteStatus == "success" ? "Deleted!" : "Error!"; ?>',
+//   //   text: '<?php echo $deleteMessage; ?>',
+//   //   icon: '<?php echo $deleteStatus; ?>'
+//   // });
+// <?php endif; ?>

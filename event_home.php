@@ -68,9 +68,9 @@
                     while ($row = $result->fetch_assoc()) {
                         echo '<div class="event-card">';
                         echo '<h3 class="event-title">' . $row["name"] . '</h3>';
-                        echo '<img src="data:image/jpeg;base64,' . base64_encode($row["icon"]) . '" alt="' . $row["name"] . '">';
+                        echo "<img style='width:150px' src='uploads/{$row['icon']}'  {$row['name']} >";
                         // echo '<p class="event-description">Description for ' . $row["name"] . ' events.</p>';
-                        echo '<br><a href="#" class="more-info-button">         More</a>';
+                        echo '<br><a href="all_card.php" class="more-info-button">         More</a>';
                         echo '</div>';
                     }
                 } else {

@@ -32,15 +32,15 @@ div.links a:hover {
   border-radius: 15px;
   transform: scale(1.1);
 }
-div.links a:focus {
-  /* background-color: black; */
-}
-div.links a:active {
-  /* color: rgb(0, 255, 170); */
-}
+
 section.category {
+  
+ margin-top: 20px;
+
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  width: 100%;
+  
   flex-direction: row;
   gap: 50px;
   align-items: center;
@@ -51,20 +51,15 @@ a {
 }
 
 section.category div.maincategory {
-  /* background-color: antiquewhite; */
-
   display: flex;
   justify-content: center;
-  align-items: center;
-  
-
   flex-direction: column;
 }
 
 .events-cards .main {
   padding-top: 25px;
   padding-left: 20px;
-  width: 300px;
+  width: 450px;
 }
 
 article {
@@ -117,17 +112,22 @@ article img {
   flex-direction: column;
   gap: 10px;
   padding: 24px;
+  background: rgb(38,53,93);
+  background: linear-gradient(90deg, rgba(36, 23, 23, 0.912) 49%, rgba(26, 52, 44, 0.874) 85%);
 }
 
 article a {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  color: #28666e;
+  color: #fdb202;
 }
 
 article a:focus {
   outline: 1px dotted #28666e;
+}
+h6{
+color: white;
 }
 
 article a .icon {
@@ -140,12 +140,13 @@ article a .icon {
   transition: all 0.3s;
 }
 .category_img {
-  width: 107px;
-  height: 107px;
+  width:50px;
+  height:50px;
 }
 
 p {
-  font-size: 11px;
+  font-size: 15px;
+  color: black;
 }
 
 /* using the has() relational pseudo selector to update our custom properties */
@@ -173,7 +174,7 @@ body {
 
 .articles {
   margin-inline: auto;
-  padding-inline: 24px;
+  padding-inline: 10px;
 }
 @media screen and (max-width: 592px) {
   div.links a {
@@ -228,3 +229,28 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+/* Add to your CSS file */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagination a {
+  text-decoration: none;
+  padding: 8px 16px;
+  margin: 0 4px;
+  border: 1px solid #0b0a0a;
+  border-radius: 4px;
+  color: #030303;
+}
+
+.pagination a.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.pagination a:hover {
+  background-color: #ddd;
+}
+
