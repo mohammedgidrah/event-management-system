@@ -1,7 +1,8 @@
 <?php
+session_start();
 include 'connection.php';
-
-$user_id = 72;
+$user_id = $_SESSION['user_id'];
+// $user_id = 72;
 
 $sql = "SELECT * FROM users WHERE user_id = ?";
 $stmt = $conn->prepare($sql);

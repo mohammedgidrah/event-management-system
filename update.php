@@ -1,4 +1,7 @@
 <?php
+session_start();
+$user_id = $_SESSION['user_id'];
+
 include 'connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -19,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_param("sssi", $fname, $lname, $email, $user_id);
     }
     if ($stmt->execute()) {
-        header("Location: index.php?user_id=$user_id");
+        header("Location: index_user.php?user_id=$user_id");
         exit();
     } else {
         echo "err didnt update" . $conn->error;
@@ -29,4 +32,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 $conn->close();
+include 'footer.php';
 ?>

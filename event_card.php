@@ -1,15 +1,15 @@
 <?php
 include 'connection.php';
-// include 'create_event.php';
-// if(isset($_GET['event_id'])){
-// $id = $_GET['event_id'];
-// echo $id;
-// }
-// else{
+include 'create_event.php';
+if(isset($_GET['event_id'])){
+$id = $_GET['event_id'];
+echo $id;
+}
+else{
     
-//     echo "hi";
-// }
-$id=55;
+    echo "hi";
+}
+// $id=55;
 $ticket_type_id = isset($_POST['ticket_type']) ? intval($_POST['ticket_type']) : 1;
 
 // Fetch event details

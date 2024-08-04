@@ -1,17 +1,26 @@
 <?php
+session_start();
 include 'connection.php';
-// include 'event_card.php';
-include 'header_details.php'; 
 
-// if(isset($_GET['event_id'])){
-// $id = $_GET['event_id'];
-// echo $id;
-// }
-// else{
-    
-//     echo "hi";
-// }
-$id=55;
+include 'header.php';
+
+
+
+
+
+
+
+
+
+if (isset($_GET['event_id']) && is_numeric($_GET['event_id'])) {
+  $id = intval($_GET['event_id']);
+} else {
+  echo "Invalid or missing event_id.";
+  exit;
+}
+
+
+
 $ticket_type_id = isset($_POST['ticket_type']) ? intval($_POST['ticket_type']) : 1;
 
 // Fetch event details
@@ -39,16 +48,15 @@ $ticket_types_stmt->execute();
 $ticket_types = $ticket_types_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
 if (isset($_POST['register'])) {
-    // $user_id = $_GET['user_id'];
-$user_id=72;
-    $stmt3 = $conn->prepare("INSERT INTO tickets (event_id, user_id, ticket_price_id) SELECT ?, ?, ticket_price_id FROM ticket_prices WHERE event_id = ? AND ticket_type_id = ?");
-    $stmt3->bind_param("iiii", $id, $user_id, $id, $ticket_type_id);
-    if ($stmt3->execute()) {
-        $message = "Registration successful!";
-    } else {
-        $message = "err";
-    }
-    $stmt3->close();
+  $user_id = $_SESSION['user_id'];
+  $stmt3 = $conn->prepare("INSERT INTO tickets (event_id, user_id, ticket_price_id) SELECT ?, ?, ticket_price_id FROM ticket_prices WHERE event_id = ? AND ticket_type_id = ?");
+  $stmt3->bind_param("iiii", $id, $user_id, $id, $ticket_type_id);
+  if ($stmt3->execute()) {
+    $message = "Registration successful!";
+  } else {
+    $message = "err";
+  }
+  $stmt3->close();
 }
 
 $stmt->close();
@@ -58,8 +66,8 @@ $ticket_types_stmt->close();
 $conn->close();
 
 if (!$event) {
-    $message = "No event found.";
-    exit;
+  $message = "No event found.";
+  exit;
 }
 
 $formattedDateTime = date('Y-m-d\TH:i:s', strtotime($event['start_date'] . ' ' . $event['start_time']));
@@ -73,8 +81,12 @@ $formattedDateTime = date('Y-m-d\TH:i:s', strtotime($event['start_date'] . ' ' .
         <h1><?php echo htmlspecialchars($event['title']); ?></h1>
         <p><?php echo htmlspecialchars($event['description']); ?></p>
         <p><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($event['location']); ?></p>
-        <p><i class="fas fa-calendar-alt"></i> Date: <?php echo htmlspecialchars(date('d/m/Y', strtotime($event['start_date']))); ?> - <?php echo htmlspecialchars(date('d/m/Y', strtotime($event['end_date']))); ?></p>
-        <p><i class="fas fa-clock"></i> Time: <?php echo htmlspecialchars(date('g:i A', strtotime($event['start_time']))); ?> - <?php echo htmlspecialchars(date('g:i A', strtotime($event['end_time']))); ?></p>
+        <p><i class="fas fa-calendar-alt"></i> Date:
+          <?php echo htmlspecialchars(date('d/m/Y', strtotime($event['start_date']))); ?> -
+          <?php echo htmlspecialchars(date('d/m/Y', strtotime($event['end_date']))); ?></p>
+        <p><i class="fas fa-clock"></i> Time:
+          <?php echo htmlspecialchars(date('g:i A', strtotime($event['start_time']))); ?> -
+          <?php echo htmlspecialchars(date('g:i A', strtotime($event['end_time']))); ?></p>
         <p>Capacity: <?php echo htmlspecialchars($event['capacity']); ?> attendees</p>
       </div>
     </div>
@@ -86,7 +98,7 @@ $formattedDateTime = date('Y-m-d\TH:i:s', strtotime($event['start_date'] . ' ' .
       <form method="POST">
         <label for="ticket_type">Select Ticket Type:</label>
         <select id="ticket_type" name="ticket_type" onchange="this.form.submit()">
-          <?php foreach ($ticket_types as $row) : ?>
+          <?php foreach ($ticket_types as $row): ?>
             <option value="<?php echo htmlspecialchars($row['ticket_type_id']); ?>" <?php echo ($row['ticket_type_id'] == $ticket_type_id ? 'selected' : ''); ?>>
               <?php echo htmlspecialchars($row['name']); ?>
             </option>
@@ -94,13 +106,13 @@ $formattedDateTime = date('Y-m-d\TH:i:s', strtotime($event['start_date'] . ' ' .
         </select>
         <h2>Price: $<?php echo htmlspecialchars($price); ?></h2>
         <button type="submit" name="register" value="1" class="cta-button">Register</button>
-      <div id="countdown" class="countdown"></div>
-      <?php if (isset($message)) : ?>
-        <h2><?php echo htmlspecialchars($message); ?></h2>
-      <?php endif; ?>
+        <div id="countdown" class="countdown"></div>
+        <?php if (isset($message)): ?>
+          <h2><?php echo htmlspecialchars($message); ?></h2>
+        <?php endif; ?>
       </form>
-      
-      
+
+
     </div>
   </section>
 </main>

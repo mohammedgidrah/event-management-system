@@ -1,5 +1,10 @@
 <?php
+
+
+include 'header.php';
+
 include 'fetch.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +27,7 @@ include 'fetch.php';
     <div class="row">
         <div class="col-xl-4">
             <div class="card mb-4 mb-xl-0">
-                <div class="card-header">Profile</div>
+                <div class="card-header"><a href="index.php" style="  text-decoration: none;">Go Back</a></div>
                 <div class="card-body text-center">
                     <img class="img-account-profile rounded-circle mb-2" src="https://img.freepik.com/vector-premium/avatar-icono-plano-glifo-blanco-humano-sobre-fondo-azul_822686-239.jpg?w=826" alt="">
                     <div class="mb-2">
@@ -82,3 +87,7 @@ include 'fetch.php';
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+<?php 
+include 'footer.php';
+?>
+
