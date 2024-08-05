@@ -1,4 +1,4 @@
-#Event Management System
+##Event Management System
 Overview
 The Event Management System is a web-based platform designed to help users manage and organize events efficiently. It allows administrators to create, update, and delete events, while users can browse, search, and register for events. The system also supports user authentication, role-based access control, and various other features to streamline the event management process.
 
@@ -10,14 +10,14 @@ Event Categories: Categorize events for easier browsing.
 Event Registration: Users can register for events and view their registrations.
 Responsive Design: Mobile-friendly interface for managing events on the go.
 
-#Technologies Used
+##Technologies Used
 Frontend: HTML, CSS, JavaScript
 Backend: PHP
 Database: MySQL
 Libraries/Frameworks: Bootstrap (for UI), jQuery (for DOM manipulation)
 Version Control: Git
 
-#Installation
+##Installation
 To run this project locally, follow these steps:
 
 Clone the repository:
@@ -31,7 +31,7 @@ bash
 
 cd event-management-system
 
-#Set up the database:
+##Set up the database:
 
 Import the provided SQL file (database.sql) located in the db folder into your MySQL database.
 Update the database configuration in connection.php to match your local environment.
