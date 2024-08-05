@@ -136,10 +136,7 @@ body{
     transition: background-color 0.3s, color 0.3s;
 }
 
-.nav-link:hover {
-    /* background-color: var(--blue300); */
-    color: var(--red500);
-}
+
 
 .login {
     display: flex;
@@ -313,16 +310,16 @@ footer {
     margin: 0 15px;
 }
 
-.right-section a {
+/* .right-section a {
     color: var(--blue100);
     text-decoration: none;
     font-size: 18px;
     margin: 0 10px;
-}
+} */
 
-.right-section a:hover {
+/* .right-section a:hover {
     color: var(--red500);
-}
+} */
 
 .FAQ {
     font-size: 18px;
@@ -419,7 +416,7 @@ footer {
 }
 
 .description {
-    color: var(--blue400); 
+    /* color: var(--blue400);  */
     margin-bottom: 20px;
     font-family: var(--par);
     font-weight: var(--pop-light); 
@@ -521,13 +518,13 @@ footer {
 }
 
 .team-info h4 {
-    color: var(--blue500); 
+    /* color: var(--blue500);  */
     font-family: var(--par);
     font-weight: var(--pop-medium);
 }
 
 .team-info p {
-    color: var(--blue400); 
+    /* color: var(--blue400);  */
     font-family: var(--par);
     font-weight: var(--pop-light);
 }
@@ -598,11 +595,11 @@ footer {
 
 }
 .testimonial-text {
-    color: var(--blue100); 
+    /* color: var(--blue100);  */
     font-family: var(--par);
     font-weight: var(--pop-medium);
     text-align: center;
-    background-color: var(--blue500);
+    /* background-color: var(--blue500); */
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -624,9 +621,9 @@ footer {
 }
 
 .testimonial-slide img {
-    width: 100%;
+    width: 200px;
     max-width: 300px; 
-    height: auto;
+    height: 200px;
     border-radius: 50%;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
@@ -635,13 +632,16 @@ footer {
     cursor: pointer;
     position: absolute;
     top: 50%;
-    width: auto;
+    width: 10px;
+    height:10px;
     padding: 16px;
     margin-top: -22px;
     color: var(--blue100);
     font-weight: bold;
     font-size: 24px;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
     user-select: none;
     background-color: var(--blue500); 
     transition: background-color 0.3s; 

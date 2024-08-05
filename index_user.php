@@ -57,6 +57,9 @@ include 'fetch.php';
         </div>
     </div>
 </div>
+<?php 
+include 'footer.php';
+?>
 
 <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -87,7 +90,4 @@ include 'fetch.php';
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-<?php 
-include 'footer.php';
-?>
 

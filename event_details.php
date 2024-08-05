@@ -2,7 +2,6 @@
 session_start();
 include 'connection.php';
 
-include 'header.php';
 
 
 
@@ -72,6 +71,9 @@ if (!$event) {
 
 $formattedDateTime = date('Y-m-d\TH:i:s', strtotime($event['start_date'] . ' ' . $event['start_time']));
 ?>
+  <?php
+  include 'header.php';
+  ?>
 
 <main>
   <section class="event-details">
@@ -82,16 +84,16 @@ $formattedDateTime = date('Y-m-d\TH:i:s', strtotime($event['start_date'] . ' ' .
         <p><?php echo htmlspecialchars($event['description']); ?></p>
         <p><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($event['location']); ?></p>
         <p><i class="fas fa-calendar-alt"></i> Date:
-          <?php echo htmlspecialchars(date('d/m/Y', strtotime($event['start_date']))); ?> -
-          <?php echo htmlspecialchars(date('d/m/Y', strtotime($event['end_date']))); ?></p>
+        <?php echo htmlspecialchars(date('d/m/Y', strtotime($event['start_date']))); ?> -
+        <?php echo htmlspecialchars(date('d/m/Y', strtotime($event['end_date']))); ?></p>
         <p><i class="fas fa-clock"></i> Time:
-          <?php echo htmlspecialchars(date('g:i A', strtotime($event['start_time']))); ?> -
-          <?php echo htmlspecialchars(date('g:i A', strtotime($event['end_time']))); ?></p>
+        <?php echo htmlspecialchars(date('g:i A', strtotime($event['start_time']))); ?> -
+        <?php echo htmlspecialchars(date('g:i A', strtotime($event['end_time']))); ?></p>
         <p>Capacity: <?php echo htmlspecialchars($event['capacity']); ?> attendees</p>
       </div>
     </div>
   </section>
-
+  
   <section class="registration">
     <div class="container">
       <h1>Event Registration</h1>
