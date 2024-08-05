@@ -24,7 +24,7 @@ Clone the repository:
 
 bash
 
-git clone https://github.com/your-username/event-management-system.git
+git clone https://github.com/mohammedgidrah/event-management-system.git
 Navigate to the project directory:
 
 bash
