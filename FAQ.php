@@ -1,6 +1,6 @@
 <?php
 include "connection.php";
-include 'header.php';
+include './includes/header.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -223,4 +223,4 @@ include 'header.php';
 </body>
 
 </html>
-<?php include 'footer.php'; ?>
+<?php include './includes/footer.php'; ?>

@@ -1,6 +1,6 @@
 <?php
 include "connection.php";
-include 'header.php';
+require 'includes/header.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,15 +9,24 @@ include 'header.php';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>event</title>
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="styles/index.css?v=<?php echo time(); ?>">
+
 </head>
 
+
 <body>
+    <section class="sectione_all_category">
+        <h1>all caategory</h1>
+
+
+    </section>
 
     <?php
+
+
+    $numofevents=
     // Pagination settings
-    $itemsPerPage = 6;
+    $itemsPerPage = 50;
     $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     $currentPage = max($currentPage, 1); // Ensure page number is at least 1
     $offset = ($currentPage - 1) * $itemsPerPage;
@@ -25,20 +34,34 @@ include 'header.php';
     // Fetch categories
     $result = $conn->query("SELECT * FROM event_categories");
     $rows = $result->fetch_all(MYSQLI_ASSOC);
+    
     echo "<section class='category'>";
     foreach ($rows as $row) {
-        echo "
-        <a href='#'>
+        echo "<form action='fetch_events.php' method='get'>
+        
+        </form>
+        <a href='all_card.php?search={$row['name']}' class='category-link' data-category-id='{$row['category_id']}'>
             <div class='maincategory'>
                 <img class='category_img' src='uploads/{$row['icon']}' alt='{$row['name']}'>
                 <p>{$row['name']}</p>
             </div>
         </a>";
     }
-    echo "</section>";  
+    echo "</section>";
+    
+    echo "<section id='events-container'></section>";
+    
 
     // Fetch events with pagination
-    $events = $conn->query("SELECT * FROM events LIMIT $offset, $itemsPerPage");
+    $querystrng = "SELECT events.* FROM events  JOIN event_category_assignment USING (event_id) JOIN event_categories USING (category_id)";
+    if(isset($_GET['search']))
+    {
+        $querystrng .= " where event_categories.name = '{$_GET['search']}' LIMIT $offset, $itemsPerPage;";
+    }
+    else {
+        $querystrng .= "LIMIT $offset, $itemsPerPage";
+    }
+    $events = $conn->query($querystrng);
     $events_img = $conn->query("SELECT * FROM event_images");
 
     $eventRows = $events->fetch_all(MYSQLI_ASSOC);
@@ -57,7 +80,7 @@ include 'header.php';
         $eventId = $event['event_id'];
         $imageUrl = '';
         if (isset($eventImages[$eventId]) && !empty($eventImages[$eventId])) {
-            $imageUrl = 'uploads_events/' . $eventImages[$eventId][0];
+            $imageUrl = 'dashboard/uploads_events/' . $eventImages[$eventId][0];
             if (!file_exists($imageUrl)) {
                 $imageUrl = '';
             }
@@ -108,7 +131,9 @@ include 'header.php';
     }
     echo "</div>";
     ?>
+   
+
 </body>
 
 </html>
-<?php include 'footer.php'; ?>
+<?php include 'includes/footer.php'; ?>

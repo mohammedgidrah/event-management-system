@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Poppins:wght@300..600&display=swap');
+
+:root {
+  --red500: #B80000;
+  --red400: #EE4E4E;
+  --red300: #FF6D60;
+  --red200: #FF8D83;
+  --red100: #FFBFB9;
+
+  --yellow500: #FFC700;
+  --yellow400: #FFDB00;
+  --yellow300: #FFF455;
+  --yellow200: #FFF78A;
+  --yellow100: #FFFAB9;
+
+  --blue500: #26355D;
+  --blue400: #219C90;
+  --blue300: #98D8AA;
+  --blue200: #C2E2CB;
+  --blue100: #F9FAFE;
+}
+
+* {
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-image: url('main_bg.svg');
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--blue500);
+  font-size: 16px;
+
+}
+
+header {
+  background-color: var(--blue500);
+  color: #fff;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+
+  margin-top: 60px; 
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 15px;
+}
+
+.event-details,
+.registration {
+    width: 100%;
+    max-width: 500px; 
+    padding: 40px;
+    border-radius: 15px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative; 
+  }
+
+
+.event-details img {
+  width: 400px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.event-info h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.event-info p {
+  margin-bottom: 10px;
+}
+
+.event-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-meta p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.event-meta i {
+  color: var(--blue400);
+  margin-right: 10px;
+}
+
+.registration h1 {
+  font-size: 2.5rem; 
+  margin-bottom: 20px;
+  text-align: center;
+  color: #050932; 
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.registration form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+}
+
+.registration select, .registration input {
+  padding: 15px; 
+  border: 1px solid #6b7cff;
+  border-radius: 8px; 
+  font-size: 16px;
+  background-color: #091134; 
+  color: #ffffff; 
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.registration select:focus, .registration input:focus {
+  border-color: #4a5efc; 
+  box-shadow: 0 0 5px rgba(74, 94, 252, 0.5); 
+  outline: none; 
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff4c4c; 
+  text-align: center;
+}
+
+.countdown {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4a5efc; 
+  text-align: center; 
+  margin-top: 10px; 
+}
+
+
+footer {
+  background-color: #2ca398; 
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.left-section,
+.center-section,
+.right-section {
+  display: flex;
+  align-items: center;
+}
+
+.left-section p,
+.center-section p,
+.right-section a {
+  margin: 0 10px;
+}
+
+.right-section a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 0 5px;
+}
+h2{
+  align-self: center;
+}
+.right-section a:hover {
+  color: #26355D; 
+}
+@media (max-width: 768px) {
+
+  * {
+    overflow: visible;
+  }
+
+}
+.cta-button {
+  background-color: #28a745; 
+  color: white;              
+  border: none;              
+  padding: 15px 30px;
+  text-align: center;      
+  font-size: 18px;         
+  margin-top: 15px; 
+  cursor: pointer;           
+  border-radius: 8px;    
+  transition: background-color 0.3s, transform 0.3s; 
+  position: relative; 
+  overflow: hidden; 
+}
+
+.cta-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: transform 0.5s;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.cta-button:hover::after {
+  transform: translate(-50%, -50%) scale(1); 
+}
+
+.cta-button:hover {
+  background-color: #218838;
+  transform: scale(1.05); 
+}
+
+
+.cta-button:active {
+  background-color: #1e7e34;
+}
+
+@media (max-width: 600px) {
+  .registration {
+    padding: 20px;
+  }
+
+  .registration h1 {
+    font-size: 2rem;
+  }
+
+  .cta-button {
+    font-size: 16px; 
+  }
+}

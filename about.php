@@ -20,7 +20,7 @@
 </head>
 <body>
 <?php
-include "header.php"
+include "includes/header.php"
 ?>
 
 <div class="about-section">
@@ -52,7 +52,7 @@ include "header.php"
 include "Team.php"
 ?>
 <?php
-include "footer.php"
+include "includes/footer.php"
 ?>
 </body>
 </html>

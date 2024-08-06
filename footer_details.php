@@ -18,7 +18,7 @@
   </footer>
 
  <script>
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const countdownElement = document.getElementById('countdown');
     const eventDateStr = "<?php echo $formattedDateTime; ?>";
     const eventDate = new Date(eventDateStr).getTime();
@@ -26,17 +26,26 @@
     function updateCountdown() {
         const now = new Date().getTime();
         const distance = eventDate - now;
+        
+        if (distance < 0) {
+            countdownElement.innerHTML = 'The event has started!';
+            return;
+        }
+
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        countdownElement.innerHTML = distance > 0 ? `${days}d ${hours}h ${minutes}m ${seconds}s` : 'The event has started!';
+        countdownElement.innerHTML = ` Event starts in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
-
+    updateCountdown();
     setInterval(updateCountdown);
 });
 
  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 </html>

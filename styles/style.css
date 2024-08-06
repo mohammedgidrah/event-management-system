@@ -308,6 +308,7 @@ footer {
 .center-section img,
 .right-section a {
     margin: 0 15px;
+    text-decoration: none;
 }
 
 /* .right-section a {
@@ -416,7 +417,6 @@ footer {
 }
 
 .description {
-    /* color: var(--blue400);  */
     margin-bottom: 20px;
     font-family: var(--par);
     font-weight: var(--pop-light); 
@@ -491,7 +491,6 @@ footer {
     background-color: var(--blue300); 
     border-radius: 8px;
     overflow: hidden;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     transition: transform 0.3s ease-in-out;
 }
 
@@ -518,13 +517,11 @@ footer {
 }
 
 .team-info h4 {
-    /* color: var(--blue500);  */
     font-family: var(--par);
     font-weight: var(--pop-medium);
 }
 
 .team-info p {
-    /* color: var(--blue400);  */
     font-family: var(--par);
     font-weight: var(--pop-light);
 }
@@ -595,11 +592,9 @@ footer {
 
 }
 .testimonial-text {
-    /* color: var(--blue100);  */
     font-family: var(--par);
     font-weight: var(--pop-medium);
     text-align: center;
-    /* background-color: var(--blue500); */
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -625,7 +620,6 @@ footer {
     max-width: 300px; 
     height: 200px;
     border-radius: 50%;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 .testimonial-prev, .testimonial-next {

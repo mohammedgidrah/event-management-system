@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("connection.php");
+include("includes/header.php");
 
 
 
@@ -70,8 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $conn->close();
 }
 
-    
-    ?>
+
+?>
 
 
 
@@ -84,73 +85,80 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/login.css">
 </head>
 
-<body>
-<div class="container">
-    <input type="checkbox" id="check">
-    <div class="login form">
+<body class="login_body">
+    <section class="text">login/signup</section>
+    <section class="sctione_header">
+        <section></section>
+    </section>    
+    <div class="container_login">
+        <input type="checkbox" id="check">
+        <div class="logins forms">
 
 
-    <div>
-        <header>Login</header>
+            <div class="login_div">
 
 
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div>
-                <input placeholder="Email" type="email" name="email" value="<?php echo htmlspecialchars($email ?? ''); ?>">
-                <span style="color: red;"><?php echo $email_err; ?></span>
-            </div>    
-            <div>
-                <input placeholder="Password" type="password" name="password">
-                <span style="color: red;"><?php echo $password_err; ?></span>
-        <?php 
-        if (!empty($login_err)) {
-            echo '<div style="color: red;">' . $login_err . '</div>';
-        }        
-        ?>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <div>
+                        <input placeholder="Email" type="email" name="email" value="<?php echo htmlspecialchars($email ?? ''); ?>">
+                        <span style="color: red;"><?php echo $email_err; ?></span>
+                    </div>
+                    <div>
+                        <input placeholder="Password" type="password" name="password">
+                        <span style="color: red;"><?php echo $password_err; ?></span>
+                        <?php
+                        if (!empty($login_err)) {
+                            echo '<div style="color: red;">' . $login_err . '</div>';
+                        }
+                        ?>
+                    </div>
+                    <div>
+                        <input class="buttons" type="submit" value="Login">
+                    </div>
+                </form>
             </div>
-            <div>
-                <input  class="button" type="submit" value="Login">
+            <div class="signup_contaner">
+                <span class="signup">Don't have an account?
+                    <label for="check">Signup</label>
+                </span>
             </div>
-        </form>
-    </div>  
-      <div class="signup">
-        <span class="signup">Don't have an account?
-          <label for="check">Signup</label>
-        </span>
-      </div>
-    </div>
-    <div class="registration form">
-      <header>SignUp</header>
-      <form id="sign-up-form" action="add_user.php" method="post">
-        <input id="firstName-input-sign-up" type="text" placeholder="First name" name="Fname" required>
-        <small class="error-message" id="fname-error"></small>
-        <input id="lastName-input-sign-up" type="text" placeholder="Last name" name="Lname" required>
-        <small class="error-message" id="lname-error"></small>
-        <input id="email-input-sign-up" type="email" placeholder="Email" name="email" required>
-        <small class="error-message" id="email-error"></small>
-        <input id="password-input-sign-up" type="password" placeholder="Password" name="password" required>
-        <small class="error-message" id="password-error"></small>
-        <input type="submit" class="button" value="Signup">
-        <!-- <input type="hidden" class="button" value="Signup" name="role"> -->
+        </div>
+        <div class="registrations forms">
+            <!-- <header>SignUp</header> -->
+            <form id="sign-up-form" action="add_user.php" method="post">
+                <input id="firstName-input-sign-up" type="text" placeholder="First name" name="Fname" required>
+                <small class="error-message" id="fname-error"></small>
+                <input id="lastName-input-sign-up" type="text" placeholder="Last name" name="Lname" required>
+                <small class="error-message" id="lname-error"></small>
+                <input id="email-input-sign-up" type="email" placeholder="Email" name="email" required>
+                <small class="error-message" id="email-error"></small>
+                <input id="password-input-sign-up" type="password" placeholder="Password" name="password" required>
+                <small class="error-message" id="password-error"></small>
+                <input type="submit" class="buttons" value="Signup">
+                <!-- <input type="hidden" class="button" value="Signup" name="role"> -->
 
-      </form>
-      <div class="signup">
-        <span class="signup">Already have an account?
-          <label for="check">Login</label>
-        </span>
-      </div>
+            </form>
+            <div class="signup_contaner">
+                <span class="signup">Already have an account?
+                    <label for="check">Login</label>
+                </span>
+            </div>
+        </div>
     </div>
-  </div>
-  <script src="login.js?v<?php echo time(); ?>"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<?php
+include('includes/footer.php');
+?>
+    <script src="script/login.js?v echo time(); ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 </body>
+
 
 </html>

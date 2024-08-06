@@ -23,7 +23,7 @@
 
 <body>
     <?php
-    include "header.php";
+    include "includes/header.php";
     ?>
 
     <!-- hero start -->
@@ -87,7 +87,7 @@
    include "Testimonial.php";
    ?>
     <?php
-    include "footer.php";
+    include "includes/footer.php";
     ?>
 </body>
 
