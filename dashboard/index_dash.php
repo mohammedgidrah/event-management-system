@@ -1,5 +1,5 @@
-<?php include ("includes/header.php"); ?>
-<?php include ("includes/sidebar.php"); ?>
+<?php include("includes/header.php"); ?>
+<?php include("includes/sidebar.php"); ?>
 <?php
 include '../connection.php';
 
@@ -13,12 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt2->bind_param("i", $userID);
 
     if ($stmt1->execute()) {
-
     } else {
       echo "Error: " . $stmt->error;
     }
     if ($stmt2->execute()) {
-
     } else {
       echo "Error: " . $stmt->error;
     }
@@ -110,4 +108,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </main><!-- End #main -->
 
 
-<?php include ("includes/footer.php");
+<?php include("includes/footer.php");
