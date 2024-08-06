@@ -32,5 +32,4 @@ if (isset($_POST["submit"])) {
     header("Location: category.php ");
     exit;
 }
-
 ?>
