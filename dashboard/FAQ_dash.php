@@ -1,5 +1,11 @@
 <?php
-include ("includes/header.php")
+include ("includes/header.php");
+// session_start();
+ if(isset($_SESSION['roles']) && $_SESSION['roles'] == 'admin'):
+
+?>
+
+<?php
     ?>
 <?php include ("includes/sidebar.php") ?>
 <?php
@@ -10,7 +16,7 @@ include '../connection.php';
         <h1>Frequently Asked Questions </h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
                 <li class="breadcrumb-item active">Add FAQs</li>
             </ol>
         </nav>
@@ -28,8 +34,7 @@ include '../connection.php';
                         <form class="row g-3" action="add_faq.php" method="POST" enctype="multipart/form-data">
                             <div class="col-md-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="floatingName"
-                                        placeholder="Frequently Asked Questions" name="faq_question" required>
+                                    <input type="text" class="form-control" id="floatingName" placeholder="Frequently Asked Questions" name="faq_question" required>
                                     <label for="floatingName">Frequently Asked Questions </label>
                                 </div>
                             </div>
@@ -56,3 +61,8 @@ include '../connection.php';
 
 
 </main>
+<?php include 'includes/footer.php'?>
+<?php elseif(!isset($_SESSION['roles'])):{
+        header('location: ../index.php');
+    }?>
+<?php endif; ?>

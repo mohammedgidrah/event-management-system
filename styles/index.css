@@ -2,16 +2,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family:Arial, Helvetica, sans-serif ;
 }
 nav {
   display: flex;
   font-size: 16px;
   justify-content: space-around;
 }
-.logo {
+/* .logo {
   height: 100px;
   width: 150px;
-}
+} */
 
 div.links {
   align-items: center;
@@ -50,10 +51,13 @@ a {
 }
 
 section.category div.maincategory {
-  display: flex;
+  display: flex !important;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+.main{
+  padding-bottom: 20px;
 }
 
 .events-cards .main {
@@ -118,20 +122,22 @@ article img {
 .article-body {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 10px;
   padding: 24px;
   background: rgb(38, 53, 93);
-  background: linear-gradient(
+  /* background: linear-gradient(
     90deg,
     rgba(36, 23, 23, 0.912) 49%,
     rgba(26, 52, 44, 0.874) 85%
-  );
+  ); */
 }
 
 article a {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
+  font-size: 20px;
   color: #ffae00;
 }
 
@@ -171,8 +177,7 @@ article:has(:hover, :focus) {
   --title-color: #ffffff;
   --link-icon-translate: 0;
   --link-icon-opacity: 1;
-  box-shadow: rgba(0, 0, 0, 50) 0px 10px 36px 0px,
-    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  
 }
 
 /************************ 
@@ -180,8 +185,6 @@ article:has(:hover, :focus) {
   **************************/
 
 body {
-  margin: 0;
-  padding: 48px 0;
   font-family: "Figtree", sans-serif;
   font-size: 1.2rem;
   line-height: 1.6rem;
@@ -271,12 +274,20 @@ body {
 }
 .sectione_all_category{
 
+  margin :40px 0px; 
   display: flex;
   justify-content: center;
   align-items: center;
   width: auto;
-  color: white;
+  color: #ffc700;
   height: 200px;
   text-transform: capitalize;
-  background-color: #26355d;
+  background-color: #26355D;
+}
+.sectione_all_category h1{
+
+font-size: 40px;
+}
+h6{
+  font-size: 20px;
 }

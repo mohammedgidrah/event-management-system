@@ -86,9 +86,9 @@ if (isset($_POST["submit"])) {
     }
 
     if ($statusMsg) {
+        echo "<script>alert('$statusMsg'); window.location.href='event.php';</script>";
         header("Location: event.php");
         exit;
-        // echo "<script>alert('$statusMsg'); window.location.href='event.php';</script>";
     } else {
         header("Location: event.php");
         exit;

@@ -12,11 +12,11 @@
     --yellow200:#FFF78A;
     --yellow100:#FFFAB9;
   
-    --blue500:#26355D;
-    --blue400:#219C90;
-    --blue300:#86C8C2;
-    --blue200:#C2E2CB;
-    --blue100:#F9FAFE;
+    --blue500:#131b2f;
+    --blue400:#19274d;
+    --blue300:#26355D;
+    --blue200:#2f4171;
+    --blue100:#334471;
 
     --par: 'Poppins', sans-serif;
 
@@ -55,7 +55,7 @@ body{
     font-family: var(--par);
     margin: 0;
     padding: 0;
-    background-image: url('../img/n_main_bg.svg');
+   /* background-image: url('../img/n_main_bg.svg'); */
     background-size: cover;
     background-position: center;
  
@@ -63,127 +63,21 @@ body{
 
 /*** nav start ***/
 
-.navbar {
-    background-color: var(--blue400);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    z-index: 1;
-    position: sticky;
-}
-
-.navbar img {
-    height: 40px;
-}
-
-.navbar-toggler {
-    display: none;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-.navbar-toggler-icon {
-    width: 25px;
-    height: 3px;
-    background-color: #26355D;
-    display: block;
-    position: relative;
-}
-
-.navbar-toggler-icon::before,
-.navbar-toggler-icon::after {
-    content: '';
-    width: 25px;
-    height: 3px;
-    background-color: var(--blue500);
-    position: absolute;
-    left: 0;
-}
-
-.navbar-toggler-icon::before {
-    top: -8px;
-}
-
-.navbar-toggler-icon::after {
-    top: 8px;
-}
-
-.navbar-nav {
-    display: flex;
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-    flex-direction: row;
-    justify-content: end;
-    align-items: center;
-}
-
-.nav-item {
-    margin-left: 20px;
-    position: relative;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: var(--blue100);
-    font-family: var(--par);
-    font-weight: 500;
-    font-style: normal;
-    padding: 10px 15px;
-    border-radius: 5px; 
-    transition: background-color 0.3s, color 0.3s;
-}
-
-
-
-.login {
-    display: flex;
-    flex-direction: row;
-}
-
-.login .material-symbols-outlined {
-    margin-right: 5px; 
-}
-
-@media (max-width: 768px) {
-    .navbar-nav {
-        flex-direction: column;
-        display: none;
-        width: 100%;
-        background-color: var(--blue400);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-    }
-
-    .navbar-nav.show {
-        display: flex;
-    }
-
-    .nav-item {
-        margin: 10px 0;
-        text-align: center;
-    }
-
-    .navbar-toggler {
-        display: block;
-    }
-}
-
 /* nav end */
 
 
 /* hero start */
 .hero-section {
-    position: relative;
+    /* position: relative; */
     width: 100%;
     height: 100vh;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
 .hero-item {
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     height: 100%;
     display: flex;
@@ -191,8 +85,11 @@ body{
     justify-content: center;
 }
 .hero-caption {
+    margin-top: -170px;
     text-align: left;
     width: 100%;
+    background-color: #F6F5F2;
+    padding: 70px
 }
 .content-container {
     max-width: 1200px;
@@ -269,12 +166,14 @@ body{
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    background-color:var(--red500);
-    color: var(--blue100);
+    background-color:var(--yellow500);
+    color: var(--blue500);
     margin: 30px;
+    font-weight: 700;
+    font-size: 20px;
 }
 .button:hover  {
-    background-color:var(--red400);
+    background-color:var(--yellow400);
 }
 /* hero end */
 
@@ -309,6 +208,10 @@ footer {
 .right-section a {
     margin: 0 15px;
     text-decoration: none;
+    color: #26355D;
+}
+.left-section p{
+    color: white;
 }
 
 /* .right-section a {
@@ -401,8 +304,11 @@ footer {
 }
 
 .section-title {
-    color: var(--blue500); 
+    color: #ffc700; 
     font-family: var(--par);
+    width: 100%;
+    height: 200PX;
+    background-color: #26355D;
     font-weight: 700; 
     text-align: center;
     font-size: 30;
@@ -411,7 +317,8 @@ footer {
 .main-heading {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: var(--blue500); 
+
+    color: #8596c1; 
     font-family: var(--par);
     font-weight: var(--pop-extrabold);
 }
@@ -419,6 +326,7 @@ footer {
 .description {
     margin-bottom: 20px;
     font-family: var(--par);
+    color: white;
     font-weight: var(--pop-light); 
 }
 
@@ -440,7 +348,7 @@ footer {
 
 .more-info-button {
     display: inline-block;
-    background-color: var(--red500); 
+    background-color: #ffc700; 
     color: var(--blue100);
     padding: 15px 30px;
     border-radius: 50px;
@@ -451,9 +359,9 @@ footer {
     transition: background-color 0.3s; 
 }
 
-.more-info-button:hover {
-    background-color: var(--red400); 
-}
+/* .more-info-button:hover {
+    background-color: white; 
+} */
 /* about end */
 
 /* team start*/
@@ -518,10 +426,12 @@ footer {
 
 .team-info h4 {
     font-family: var(--par);
+    color: #8596c1;
     font-weight: var(--pop-medium);
 }
 
 .team-info p {
+    color: white;
     font-family: var(--par);
     font-weight: var(--pop-light);
 }
@@ -636,6 +546,7 @@ footer {
     border-radius: 50%;
     display: flex;
     align-items: center;
+    justify-content: center;
     user-select: none;
     background-color: var(--blue500); 
     transition: background-color 0.3s; 
@@ -666,12 +577,17 @@ footer {
 }
 
 .section-title {
+    display: flex;
+    align-items: center;
+    /* width: 100vw; */
     text-align: center;
+    justify-content: center;
     margin-bottom: 50px;
-    color: var(--blue500);
+    color: #ffc700;
     font-family: var(--par);
     font-weight: var(--pop-bold);
     font-size: 2.5rem;
+    
 }
 
 .events-container {
@@ -690,7 +606,7 @@ footer {
 }
 
 .event-card {
-    background-color: var(--blue300);
+    background-color:#26355D;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -705,7 +621,7 @@ footer {
 }
 
 .event-title {
-    color: var(--blue500);
+    color: white;
     font-family: var(--par);
     font-weight: var(--pop-bold);
     font-size: 1.5rem;

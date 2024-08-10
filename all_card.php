@@ -1,5 +1,5 @@
 <?php
-include "connection.php";
+require "connection.php";
 require 'includes/header.php';
 ?>
 <!DOCTYPE html>
@@ -15,6 +15,9 @@ require 'includes/header.php';
 
 
 <body>
+    <!-- <section>dwefghjk</section>
+    <section>dsfghj</section>
+    <section>dsfghj</section> -->
     <section class="sectione_all_category">
         <h1>all caategory</h1>
 
@@ -42,7 +45,7 @@ require 'includes/header.php';
         </form>
         <a href='all_card.php?search={$row['name']}' class='category-link' data-category-id='{$row['category_id']}'>
             <div class='maincategory'>
-                <img class='category_img' src='uploads/{$row['icon']}' alt='{$row['name']}'>
+                <img class='category_img' src='dashboard/uploads/{$row['icon']}' alt='{$row['name']}'>
                 <p>{$row['name']}</p>
             </div>
         </a>";
@@ -94,7 +97,8 @@ require 'includes/header.php';
     <article>
     <div class='article-wrapper'>
         <figure>
-        <img src='{$imageUrl}' alt='{$event['title']}' onerror=\"this.src='path/to/default_image.jpg';\"/>
+        <a href='event_details.php?event_id={$eventId}'>
+        <img src='{$imageUrl}' alt='{$event['title']}' onerror=\"this.src='path/to/default_image.jpg';\"/></a>
         </figure>
         <div class='article-body'>
         <h6>{$event['title']}</h6>
@@ -115,21 +119,21 @@ require 'includes/header.php';
     echo "</div>";
 
     // Pagination controls
-    $totalEventsResult = $conn->query("SELECT COUNT(*) AS total FROM events");
-    $totalEvents = $totalEventsResult->fetch_assoc()['total'];
-    $totalPages = ceil($totalEvents / $itemsPerPage);
+    // $totalEventsResult = $conn->query("SELECT COUNT(*) AS total FROM events");
+    // $totalEvents = $totalEventsResult->fetch_assoc()['total'];
+    // $totalPages = ceil($totalEvents / $itemsPerPage);
 
-    echo "<div class='pagination'>";
-    if ($currentPage > 1) {
-        echo "<a href='all_card.php?page=" . ($currentPage - 1) . "'>&laquo; Previous</a>";
-    }
-    for ($i = 1; $i <= $totalPages; $i++) {
-        echo "<a href='all_card.php?page=$i'" . ($i == $currentPage ? " class='active'" : "") . ">$i</a>";
-    }
-    if ($currentPage < $totalPages) {
-        echo "<a href='all_card.php?page=" . ($currentPage + 1) . "'>Next &raquo;</a>";
-    }
-    echo "</div>";
+    // echo "<div class='pagination'>";
+    // if ($currentPage > 1) {
+    //     echo "<a href='all_card.php?page=" . ($currentPage - 1) . "'>&laquo; Previous</a>";
+    // }
+    // for ($i = 1; $i <= $totalPages; $i++) {
+    //     echo "<a href='all_card.php?page=$i'" . ($i == $currentPage ? " class='active'" : "") . ">$i</a>";
+    // }
+    // if ($currentPage < $totalPages) {
+    //     echo "<a href='all_card.php?page=" . ($currentPage + 1) . "'>Next &raquo;</a>";
+    // }
+    // echo "</div>";
     ?>
    
 

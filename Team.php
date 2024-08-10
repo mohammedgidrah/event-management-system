@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <!-- style -->
-    <link href="styles/style.css" rel="stylesheet">
+    <!-- <link href="styles/style.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="styles/style.css?v=<?php echo time(); ?>">
+
 
 
 </head>
@@ -109,7 +111,7 @@
                 <img src="img/hisham.jpg" alt="Hisham">
             </div>
             <div class="team-info">
-                <h4>Hisham</h4>
+                <h4>Hisham Alkhamaiseh</h4>
                 <p>Backend Developer: Hisham handles the server-side logic and database interactions of HiveNet. By implementing robust and scalable backend solutions, Hisham ensures the platform runs smoothly and efficiently, managing data and supporting user interactions.</p>
             </div>
         </div>
@@ -119,7 +121,7 @@
                 <img src="img/tala.jpg" alt="Tala">
             </div>
             <div class="team-info">
-                <h4>Tala</h4>
+                <h4>Tala Alosili</h4>
                 <p>Database Specialist: Tala is in charge of designing and maintaining the database infrastructure that supports HiveNet. With expertise in data management and optimization, Tala ensures that our data is organized, secure, and easily accessible.</p>
             </div>
         </div>
@@ -129,7 +131,7 @@
                 <img src="img/zaina.png" alt="Zaina">
             </div>
             <div class="team-info">
-                <h4>Zaina</h4>
+                <h4>Zaina Alhelo</h4>
                 <p>Product Owner: Zaina oversees the development and direction of HiveNet, ensuring that the platform meets user needs and business goals. As the product owner, Zaina coordinates between teams, sets priorities, and guides the product’s evolution.</p>
             </div>
         </div>
@@ -139,7 +141,7 @@
                 <img src="img/moh.jpg" alt="Mohammad">
             </div>
             <div class="team-info">
-                <h4>Mohammad</h4>
+                <h4>Mohammad Alqidrah</h4>
                 <p>Scrum Master: Mohammad facilitates the Agile development process for HiveNet, ensuring that the team adheres to Scrum practices. By managing sprints, resolving impediments, and fostering collaboration, Mohammad helps the team stay focused and productive.</p>
             </div>
         </div>

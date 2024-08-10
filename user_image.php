@@ -1,16 +1,17 @@
 
 
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "event"; 
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $dbname = "event"; 
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+// $conn = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+include 'connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_POST['user_id'];

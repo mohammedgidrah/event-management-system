@@ -1,3 +1,14 @@
+<?php
+// session_start();
+
+
+?>
+<?php  
+  
+  if(!isset($_SESSION['roles']) && !isset($_SESSION['user_id'])):{
+ 
+  // header('location: index.php');
+ }?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,14 +20,19 @@
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=League+Spartan:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <!-- style -->
-    <link href="styles/style.css" rel="stylesheet">
+    <link href="../styles/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css?v=<?php echo time(); ?>">
+
 
 
 </head>
@@ -51,30 +67,37 @@
             </div>
         </div>
     </div> -->
+
     <div class="hero-section">
-    <div class="hero-item">
-        <div class="hero-caption">
-            <div class="content-container">
-                <div class="content-row">
-                    <div class="image-column fadeInRight">
-                        <img src="img/hero_img.jpg" class="image-fluid x" alt="Main Logo">
-                    </div>
-                    <div class="text-column fadeInLeft">
-                        <div>
-                            <h1 class="blu pop-bold" style="color: var(--blue500); ">
-                                We gather all the significant events and occasions for you.
-                            </h1>
-                            <h3 class="blu pop-bold" style="color: var(--blue400);">
-                                Find, explore, and participate in everything that matters, all in one place designed to keep you connected and engaged.
-                            </h3>
-                            <a class="button" href="login.php">Join Us</a>
+        <div class="hero-item">
+            <div class="hero-caption">
+                <div class="content-container">
+                    <div class="content-row">
+                        <div class="image-column fadeInRight">
+                            <img src="img/hero_img.jpg" class="image-fluid x" alt="Main Logo">
+                        </div>
+                        <div class="text-column fadeInLeft">
+                            <div>
+                                <h1 class="blu pop-bold" style="color: var(--blue500); ">
+                                    We gather all the significant events and occasions for you.
+                                </h1>
+                                <h3 class="blu pop-bold" style="color: var(--blue400);">
+                                    Find, explore, and participate in everything that matters, all in one place designed
+                                    to keep you connected and engaged.
+                                </h3>
+                                <?PHP if (!isset($_SESSION['roles'])) : ?>
+                                <a class="button" href="login.php">Join Us</a>
+                                <?php endif ?>
+                                <?PHP if (isset($_SESSION['roles'])) : ?>
+                                <a class="button" href="all_card.php">See Events</a>
+                                <?php endif ?>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
     <!-- hero end -->
 
@@ -83,7 +106,7 @@
     ?>
 
 
-<?php
+    <?php
    include "Testimonial.php";
    ?>
     <?php
@@ -92,3 +115,5 @@
 </body>
 
 </html>
+<?php
+ endif; ?>

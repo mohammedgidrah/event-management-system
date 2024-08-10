@@ -1,5 +1,10 @@
 <?php
- include ("includes/header.php"); 
+include ("includes/header.php"); 
+// session_start();
+if(isset($_SESSION['roles']) && $_SESSION['roles'] == 'admin'):
+?>
+
+<?php
  ?>
 <?php include ("includes/sidebar.php"); ?>
 <?php
@@ -54,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['event_id'])) {
     <h1>Events</h1>
     <nav>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+            <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
             <li class="breadcrumb-item active">Events</li>
         </ol>
     </nav>
@@ -171,7 +176,22 @@ function confirmDelete(eventId) {
     });
 }
 </script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
 
-<?php include ("includes/footer.php");
+     <?php if (isset($_GET['success'])): ?>
+      Swal.fire('Success!', 'Event updated successfully.', 'success');
+    <?php endif; ?>
+  });
+</script>
+
+
+<?php include ("includes/footer.php");?>
+<?php elseif(!isset($_SESSION['roles'])):{
+        header('location: ../index.php');
+    }?>
+<?php endif;?>

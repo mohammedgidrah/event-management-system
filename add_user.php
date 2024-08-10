@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['Fname'] = $fname;
             $_SESSION['Lname'] = $lname;
             $_SESSION['email'] = $email;
-            $_SESSION['role'] = $role;
+            $_SESSION['roles'] = $role;
 
             // Redirect based on the user's role
             if ($role === 'admin') {

@@ -1,5 +1,10 @@
 <?php
 include ("includes/header.php");
+// session_start();
+if(isset($_SESSION['roles']) && $_SESSION['roles'] == 'admin'):
+?>
+
+<?php
 include ("includes/sidebar.php");
 include '../connection.php';
 if (isset($_POST['cancel'])) {
@@ -39,7 +44,7 @@ if (isset($_GET['category_id'])) {
         <h1>Edit Category</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
                 <li class="breadcrumb-item active">Edit Category</li>
             </ol>
         </nav>
@@ -82,7 +87,7 @@ if (isset($_GET['category_id'])) {
 
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                <button type="button" class="btn btn-secondary"
+                                <button type="button" style="background-color: red; color:white" class="btn btn-secondary"
                                     onclick="window.location.href='category.php';">Cancel</button>
                             </div>
                         </form>
@@ -93,3 +98,7 @@ if (isset($_GET['category_id'])) {
     </section>
 </main>
 <?php include ("includes/footer.php"); ?>
+<?php elseif(!isset($_SESSION['roles'])):{
+        header('location: ../index.php');
+    }?>
+<?php endif; ?>

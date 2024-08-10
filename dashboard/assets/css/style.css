@@ -408,7 +408,7 @@ h6 {
   font-size: 32px;
   padding-left: 10px;
   cursor: pointer;
-  color: #26355D;
+  color: #ffc700;
 }
 
 /* .header .search-bar {
@@ -491,7 +491,7 @@ h6 {
 }
 
 .header-nav .nav-profile {
-  color: #012970;
+  color: white;
 }
 
 .header-nav .nav-profile img {

@@ -10,7 +10,7 @@ if (isset($_POST["submit"])) {
     $stmt->bind_param("ss", $question, $answer);
 
     if ($stmt->execute()) {
-        header("Location: FAQ_dash.php");
+        header("Location: display_FAQ.php");
         exit;
     } else {
         echo "Error: " . $stmt->error;

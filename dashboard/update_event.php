@@ -1,5 +1,5 @@
 <?php
-include 'connection.php';
+include '../connection.php';
 
 
 
@@ -45,6 +45,8 @@ if (isset($_POST["submit"])) {
 
             if ($stmt->execute()) {
                 $statusMsg = "The event has been updated successfully.";
+                header("Location: event.php?success=1");
+                exit;
                 
                 if ($image) {
                     $stmt = $conn->prepare("UPDATE `event_images` SET `image_url` = ? WHERE `event_id` = ?");

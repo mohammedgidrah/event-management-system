@@ -26,7 +26,7 @@ $stmt->close();
         <h1>Edit Category</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
                 <li class="breadcrumb-item active">Edit Category</li>
             </ol>
         </nav>
@@ -45,7 +45,7 @@ $stmt->close();
                             <label for="eventName" class="col-sm-2 col-form-label">Event Name :</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="eventName" name="title"
-                                    value="<?php echo htmlspecialchars($event['title']); ?>" required>
+                                    value="<?php echo htmlspecialchars($event['title']); ?>" >
                             </div>
                         </div>
 
@@ -54,7 +54,7 @@ $stmt->close();
                             <div class="col-sm-10">
                                 <textarea class="form-control" id="eventDescription" name="description"
                                     style="height: 100px"
-                                    required><?php echo htmlspecialchars($event['description']); ?></textarea>
+                                    ><?php echo htmlspecialchars($event['description']); ?></textarea>
                             </div>
                         </div>
 
@@ -62,7 +62,7 @@ $stmt->close();
                             <label for="location" class="col-sm-2 col-form-label">Location :</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="location" name="location"
-                                    value="<?php echo htmlspecialchars($event['location']); ?>" required>
+                                    value="<?php echo htmlspecialchars($event['location']); ?>" >
                             </div>
                         </div>
 
@@ -81,7 +81,7 @@ $stmt->close();
                             <label for="startDate" class="col-sm-2 col-form-label">Start Date :</label>
                             <div class="col-sm-10">
                                 <input type="date" class="form-control" id="startDate" name="start_date"
-                                    value="<?php echo htmlspecialchars($event['start_date']); ?>" required>
+                                    value="<?php echo htmlspecialchars($event['start_date']); ?>" >
                             </div>
                         </div>
 
@@ -89,7 +89,7 @@ $stmt->close();
                             <label for="endDate" class="col-sm-2 col-form-label">End Date :</label>
                             <div class="col-sm-10">
                                 <input type="date" class="form-control" id="endDate" name="end_date"
-                                    value="<?php echo htmlspecialchars($event['end_date']); ?>" required>
+                                    value="<?php echo htmlspecialchars($event['end_date']); ?>" >
                             </div>
                         </div>
 
@@ -97,7 +97,7 @@ $stmt->close();
                             <label for="startTime" class="col-sm-2 col-form-label">Start At :</label>
                             <div class="col-sm-10">
                                 <input type="time" class="form-control" id="startTime" name="start_time"
-                                    value="<?php echo htmlspecialchars($event['start_time']); ?>" required>
+                                    value="<?php echo htmlspecialchars($event['start_time']); ?>" >
                             </div>
                         </div>
 
@@ -105,7 +105,7 @@ $stmt->close();
                             <label for="endTime" class="col-sm-2 col-form-label">End At :</label>
                             <div class="col-sm-10">
                                 <input type="time" class="form-control" id="endTime" name="end_time"
-                                    value="<?php echo htmlspecialchars($event['end_time']); ?>" required>
+                                    value="<?php echo htmlspecialchars($event['end_time']); ?>" >
                             </div>
                         </div>
 
@@ -113,7 +113,7 @@ $stmt->close();
                             <label for="capacity" class="col-sm-2 col-form-label">Capacity :</label>
                             <div class="col-sm-10">
                                 <input type="number" class="form-control" id="capacity" name="capacity"
-                                    value="<?php echo htmlspecialchars($event['capacity']); ?>" required>
+                                    value="<?php echo htmlspecialchars($event['capacity']); ?>" >
                             </div>
                         </div>
 

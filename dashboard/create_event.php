@@ -1,6 +1,11 @@
 <?php
 include ("includes/header.php");
 ?>
+<?php
+// session_start();
+if(isset($_SESSION['roles']) && $_SESSION['roles'] == 'admin'):
+?>
+
 <?php include ("includes/sidebar.php"); ?>
 <?php
 include '../connection.php';
@@ -12,7 +17,7 @@ include '../connection.php';
         <h1>Events</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
                 <li class="breadcrumb-item active">Add Event</li>
             </ol>
         </nav>
@@ -32,7 +37,7 @@ include '../connection.php';
                             <div class="row mb-3">
                                 <label for="eventName" class="col-sm-2 col-form-label">Event Name :</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="eventName" name="title" required>
+                                    <input type="text" class="form-control" id="eventName" name="title"  required>
                                 </div>
                             </div>
 
@@ -42,7 +47,7 @@ include '../connection.php';
                                     :</label>
                                 <div class="col-sm-10">
                                     <textarea class="form-control" id="eventDescription" name="description"
-                                        style="height: 100px" required></textarea>
+                                        style="height: 100px" required ></textarea>
                                 </div>
                             </div>
 
@@ -58,7 +63,7 @@ include '../connection.php';
                             <div class="row mb-3">
                                 <label for="eventImage" class="col-sm-2 col-form-label">Image :</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="file" id="eventImage" name="file" required>
+                                    <input style="background-color:white" class="form-control" type="file" id="eventImage" name="file" required>
                                 </div>
                             </div>
 
@@ -82,7 +87,7 @@ include '../connection.php';
                             <div class="row mb-3">
                                 <label for="startTime" class="col-sm-2 col-form-label">Start At :</label>
                                 <div class="col-sm-10">
-                                    <input type="time" class="form-control" id="startTime" name="start_time" required>
+                                    <input type="time" class="form-control" id="startTime" name="start_time" required >
                                 </div>
                             </div>
 
@@ -90,7 +95,7 @@ include '../connection.php';
                             <div class="row mb-3">
                                 <label for="endTime" class="col-sm-2 col-form-label">End At :</label>
                                 <div class="col-sm-10">
-                                    <input type="time" class="form-control" id="endTime" name="end_time" required>
+                                    <input type="time" class="form-control" id="endTime" name="end_time" required >
                                 </div>
                             </div>
 
@@ -98,7 +103,7 @@ include '../connection.php';
                             <div class="row mb-3">
                                 <label for="capacity" class="col-sm-2 col-form-label">Capacity :</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" id="capacity" name="capacity" required>
+                                    <input type="number" class="form-control" id="capacity" name="capacity" required >
                                 </div>
                             </div>
 
@@ -123,7 +128,7 @@ include '../connection.php';
                                 <label for="vipPrice" class="col-sm-2 col-form-label">VIP price:</label>
                                 <div class="col-sm-10">
                                     <input type="number" step="0.01" class="form-control" id="vipPrice" name="vip_price"
-                                        required>
+                                    required>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -142,4 +147,8 @@ include '../connection.php';
     </main>
 
 
-    <?php include ("includes/footer.php");
+    <?php include ("includes/footer.php");?>
+    <?php elseif(!isset($_SESSION['roles'])):{
+        header('location: ../index.php');
+    }?>
+    <?php endif;?>

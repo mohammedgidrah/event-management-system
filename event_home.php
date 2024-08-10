@@ -36,28 +36,31 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <!-- style -->
-    <link href="styles/style.css" rel="stylesheet">
+    <!-- <link href="styles/style.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="styles/style.css?v=<?php echo time(); ?>">
+
 </head>
 
 <body>
     <section class="events-section">
         <div class="events-container">
-            <h2 class="section-title">Our Events</h2>
+            <h2 class="section-title">Our category</h2>
             <div class="events-grid">
                 <?php
                 // Database connection
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "event"; // Replace with your actual database name
+                // $servername = "localhost";
+                // $username = "root";
+                // $password = "";
+                // $dbname = "event"; // Replace with your actual database name
 
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
+                // // Create connection
+                // $conn = new mysqli($servername, $username, $password, $dbname);
 
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
+                // // Check connection
+                // if ($conn->connect_error) {
+                //     die("Connection failed: " . $conn->connect_error);
+                // }
+                include "connection.php";
 
                 // Fetch categories
                 $sql = "SELECT name, icon FROM event_categories";
@@ -68,7 +71,7 @@
                     while ($row = $result->fetch_assoc()) {
                         echo '<div class="event-card">';
                         echo '<h3 class="event-title">' . $row["name"] . '</h3>';
-                        echo "<img style='width:150px' src='uploads/{$row['icon']}'  {$row['name']} >";
+                        echo "<img style='width:150px' src='dashboard/uploads/{$row['icon']}'  {$row['name']} >";
                         // echo '<p class="event-description">Description for ' . $row["name"] . ' events.</p>';
                         echo '<br><a href="all_card.php" class="more-info-button">         More</a>';
                         echo '</div>';
