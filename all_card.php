@@ -19,7 +19,7 @@ require 'includes/header.php';
     <section>dsfghj</section>
     <section>dsfghj</section> -->
     <section class="sectione_all_category">
-        <h1>all caategory</h1>
+        <h1>All Events</h1>
 
 
     </section>

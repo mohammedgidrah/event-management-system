@@ -171,7 +171,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <?php include ("includes/footer.php");?>
 <?php elseif(!isset($_SESSION['roles']) || $_SESSION['roles'] == 'user'):{
-        header('location: ../index.php');
+        header('location: .././index.php');
     }?>
  <?php endif;
   ?>

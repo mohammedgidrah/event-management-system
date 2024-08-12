@@ -76,7 +76,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles/login.css">
+    <!-- <link rel="stylesheet" href="styles/login.css"> -->
+    <link rel="stylesheet" href="styles/login.css?v=<?php echo time(); ?>">
+
 </head>
 
 <body class="login_body">
@@ -201,7 +203,6 @@ else{
 
 
 
-    <section class="text">login/signup</section>
     <section class="sctione_header">
         <section></section>
     </section>    
@@ -210,6 +211,7 @@ else{
         <div class="logins forms">
 
 
+            <section>login</section>
             <div class="login_div">
 
 
@@ -239,7 +241,7 @@ else{
             </div>
         </div>
         <div class="registrations forms">
-            <!-- <header>SignUp</header> -->
+            <section>SignUp</section>
             <form id="sign-up-form" action="add_user.php" method="post">
                 <input id="firstName-input-sign-up" type="text" placeholder="First name" name="Fname" >
                 <small class="error-message" id="fname-error"></small>
@@ -261,7 +263,7 @@ else{
         </div>
     </div>
 <?php
-include('includes/footer.php');
+// include('includes/footer.php');
 ?>
     <script src="script/login.js?v echo time(); ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

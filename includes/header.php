@@ -26,6 +26,8 @@ if (isset($_SESSION['user_id'])) {
 
 <head>
      <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="description" content="Event Management System - Manage and view events efficiently.">
+     <meta name="keywords" content="events, event management, event system, event planning">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> 
     <link rel="stylesheet" href="styles/nav.css" />
@@ -163,7 +165,7 @@ if (isset($_SESSION['user_id'])) {
                 <?php echo $fname; ?>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
   <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
-</svg>                        </button>
+</svg>                         </button>
             <div class="dropdown-content">
                 <a href="dashboard/index_dash.php">dashboard</a>
                 <a href="./user_profile/index_user.php">profile</a>
@@ -175,9 +177,10 @@ if (isset($_SESSION['user_id'])) {
         <div class="dropdown">
             <button class="dropbtn">
                 <?php echo $fname; ?>
-                <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
-  <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
-</svg>               </button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+</svg>
+             </button>
             <div class="dropdown-content">
                 <a href="user_profile/index_user.php">profile</a>
                 <a href="logout.php">logout</a>
